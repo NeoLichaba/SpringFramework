@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mobile.app.ws.ui.model.request.UserDetailsRequestModel;
 import com.mobile.app.ws.ui.model.response.UserRest;
 
+import javax.validation.Valid;
+
+
+
 @RestController  //receive HTTP requests
 @RequestMapping("users")  //http://localhost:8080/users
 						  //Will be responsible for all apparitions relating to user
@@ -50,6 +54,8 @@ public class UserController {
 		return new ResponseEntity<UserRest>(returnValue, HttpStatus.OK);
 	}
 	
+	
+	
 	//Responds to POST request
 	@PostMapping(
 			consumes= {
@@ -60,7 +66,7 @@ public class UserController {
 					MediaType.APPLICATION_XML_VALUE, 
 					MediaType.APPLICATION_JSON_VALUE
 					}) 
-	public ResponseEntity<UserRest> createUser(@RequestBody UserDetailsRequestModel userDetails) {
+	public ResponseEntity<UserRest> createUser(@Valid @RequestBody UserDetailsRequestModel userDetails) {
 		
 		UserRest returnValue = new UserRest();
 		returnValue.setEmail(userDetails.getEmail());
