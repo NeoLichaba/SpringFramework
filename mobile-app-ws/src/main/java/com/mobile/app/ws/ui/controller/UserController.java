@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mobile.app.ws.exceptions.UserServiceException;
 import com.mobile.app.ws.ui.model.request.UpdateUserDetailsRequestModel;
 import com.mobile.app.ws.ui.model.request.UserDetailsRequestModel;
 import com.mobile.app.ws.ui.model.response.UserRest;
@@ -51,10 +52,7 @@ public class UserController {
 	//Obtain user info
 	public ResponseEntity <UserRest> getUser (@PathVariable String userId) {
 		
-		String firstName = null;
-		//
-		//
-		int firstNameLength = firstName.length();
+		if(true) throw new UserServiceException("A user exception is thrown");
 		
 		if(users.containsKey(userId)) {
 			return new ResponseEntity<>(users.get(userId), HttpStatus.OK);}
