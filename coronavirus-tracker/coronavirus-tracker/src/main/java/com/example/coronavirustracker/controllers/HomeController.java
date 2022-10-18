@@ -20,7 +20,8 @@ public class HomeController {
 	public String home(Model model) {
 		List <LocationStats> allStats = coronaVirusDataService.getAllStats();
 		int totalReportedCases = allStats.stream().mapToInt(stat -> stat.getLatestTotalCases()).sum();
-		model.addAttribute("locationStats");
+		model.addAttribute("locationStats", allStats);
+		model.addAttribute("totalReportedCases", totalReportedCases);
 		return "home"; //returns what's in the home.html file
 	}
  
