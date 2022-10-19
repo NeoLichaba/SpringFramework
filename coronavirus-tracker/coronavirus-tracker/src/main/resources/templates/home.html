@@ -13,19 +13,26 @@
 
 </head>
 <div class="container">
-<body>
 
-	<h1>CoronaVirus Tracker Application</h1>
-	<p>This application lists the current number of cases reported across the globe</p>
+	<body>
+
+		<h1>CoronaVirus Tracker Application</h1>
+		<p>This application lists the current number of cases reported across the globe</p>
 
 
 
-	<div class="jumbotron">
-		<h1 class="display-4" th:text="${totalReportedCases}"></h1>
-		<p class="lead">Total cases reported as of today</p>
-	</div>
-	
-		<table>
+		<div class="jumbotron">
+			<h1 class="display-4" th:text="${totalReportedCases}"></h1>
+			<p class="lead">Total cases reported as of today</p>
+			<hr  class="my-4">
+			<p>
+			<span>New Cases reported since previous day</span>
+			<span> th:text="${totalReportedCases}"</span>
+			
+			</p>
+		</div>
+
+		<table class = "table">
 
 			<tr>
 				<th>State</th>
@@ -40,7 +47,7 @@
 				<td th:text="${locationStat.diffFromPrevDay}">0</td>
 			</tr>
 		</table>
-	</div>
+</div>
 
 </body>
 
