@@ -1,10 +1,10 @@
-package com.example.coronavirustracker.services;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+
 @EnableScheduling //app knows when/how often to run
 public class CoronavirusTrackerApplication {
 
