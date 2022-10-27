@@ -20,11 +20,11 @@ import com.example.coronavirustracker.models.LocationStats;
 
 //Class reads data from CoronaVirus file
 
-@Service
+@Service //makes instance of class/CoronaVirusDataService a Spring service
 public class CoronaVirusDataService {
 	
 	
-	//Call data from CSV file, using URL
+	//Call data from CSV file, using URL.
 
 	private static String VIRUS_DATA_URL= "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
 	
@@ -32,27 +32,29 @@ public class CoronaVirusDataService {
 	
 	private List<LocationStats> allStats = new ArrayList<>();
 	
-	@PostConstruct //execute method
+	@PostConstruct //execute method, makes GET req and prints out body
 	@Scheduled(cron = "* * 1 * * *") //cron expression runs method every day using proxy
-	public void fetchVirusData() throws IOException, InterruptedException {
+	public void fetchVirusData() throws IOException, InterruptedException { //send method throws IO/InterruptedExceptions
 		
 		//Allows for user to obtain current information
 		List<LocationStats> newStats = new ArrayList<>();
 		
-		//HTTP calls - using HTTP client
-		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request = HttpRequest.newBuilder()
-		.uri(URI.create(VIRUS_DATA_URL)) 
-		.build();
+		//HTTP calls - using HTTP client available in Java
+		HttpClient client = HttpClient.newHttpClient(); //Creating a HTTPClient
+		HttpRequest request = HttpRequest.newBuilder() //Making HTTP Request allows use of Builder button
+		.uri(URI.create(VIRUS_DATA_URL)) //URI created and passed to URI Method
+		.build(); 
 		
 		//obtain response by sending client request
-		//body taken and returned as a string
+		//response body received and returned as a string
 		HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
 		
-		//Creating StringReader
+		
+		//Creating StringReader - instance of Reader that parses String
 		StringReader csvBodyReader = new StringReader(httpResponse.body());
 		
-		//Header Auto Detection
+		//Header Auto Detection - commons CSV parses header names
+		
 		Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
 		for (CSVRecord record : records) {			
 			LocationStats locationStat = new LocationStats();
