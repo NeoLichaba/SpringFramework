@@ -2,6 +2,8 @@ package com.mobile.app.ws.ui.model.response;
 
 import java.util.Date;
 
+//Error message contains properties
+
 public class ErrorMessage {
 
 	private Date timestamp;	

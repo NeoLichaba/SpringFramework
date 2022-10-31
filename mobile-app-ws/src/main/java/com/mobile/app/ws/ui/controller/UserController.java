@@ -61,7 +61,7 @@ public class UserController {
 		//if(true) throw new UserServiceException("A user exception is thrown");
 		
 		if(users.containsKey(userId)) {
-			return new ResponseEntity<>(users.get(userId), HttpStatus.OK);}
+			return new ResponseEntity<>(users.get(userId), HttpStatus.OK);} //return ResponseEntity using userID
 			else {
 				return new ResponseEntity<>(users.get(userId), HttpStatus.NO_CONTENT);
 			}
@@ -96,20 +96,20 @@ public class UserController {
 					MediaType.APPLICATION_JSON_VALUE 
 	})
 	public UserRest updateUser(@PathVariable String userId, @Valid @RequestBody UpdateUserDetailsRequestModel userDetails) {
-		UserRest storedUserDetails = users.get(userId);
-		storedUserDetails.setFirstName(userDetails.getFirstName());
+		UserRest storedUserDetails = users.get(userId); //obtain 
+		storedUserDetails.setFirstName(userDetails.getFirstName()); //update storedUserDetails
 		storedUserDetails.setLastName(userDetails.getLastName());
 		
-		users.put(userId,  storedUserDetails);
+		users.put(userId,  storedUserDetails); //update users map. updated under userId with storedUserDetails
 		
 		return storedUserDetails;
 	}
 
 	@DeleteMapping(path = "/{id}")
-	public ResponseEntity<Void> deleteUser(@PathVariable String id) {
-		users.remove(id);
+	public ResponseEntity<Void> deleteUser(@PathVariable String id) { //void
+		users.remove(id);//make use of key (id) in order to delete
 		
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.noContent().build(); //return ResponseEntity, response 204 (should not return content), build response
 
 	}
 }
