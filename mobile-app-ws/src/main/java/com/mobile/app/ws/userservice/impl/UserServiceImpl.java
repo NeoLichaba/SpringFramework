@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 
 		// check if there are any users
 		if (users == null)
-			users = new HashMap<>();
+			users = new HashMap<>();   //create hashmap
 		users.put(userId, returnValue); // key, value
 
 		return returnValue;

@@ -1,5 +1,7 @@
 package com.example.coronavirustracker.models;
 
+//Stores location stats in memory
+
 public class LocationStats {
 	private String state;
 	private String country;

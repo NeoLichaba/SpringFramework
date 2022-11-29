@@ -35,7 +35,7 @@ import javax.validation.Valid;
 							// Entire class is mapped to users
 public class UserController {
 	
-	Map<String,UserRest>users; //Map data type =key, object =UserRest
+	Map<String,UserRest>users; //declaring users variable, Map data type =key, object =UserRest
 	
 	@Autowired
 	UserService userService;
@@ -80,7 +80,7 @@ public class UserController {
 			})
 	public ResponseEntity<UserRest> createUser(@Valid @RequestBody UserDetailsRequestModel userDetails) {
 
-		UserRest returnValue = userService.createUser(userDetails);
+		UserRest returnValue = userService.createUser(userDetails); 
 		
 
 		return new ResponseEntity<UserRest>(returnValue, HttpStatus.OK);

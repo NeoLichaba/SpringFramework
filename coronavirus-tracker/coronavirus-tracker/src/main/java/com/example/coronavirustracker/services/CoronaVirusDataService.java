@@ -41,12 +41,13 @@ public class CoronaVirusDataService {
 		
 		//HTTP calls - using HTTP client available in Java
 		HttpClient client = HttpClient.newHttpClient(); //Creating a HTTPClient
-		HttpRequest request = HttpRequest.newBuilder() //Making HTTP Request allows use of Builder button
+		HttpRequest request = HttpRequest.newBuilder() //Making HTTP Request allows use of Builder pattern
 		.uri(URI.create(VIRUS_DATA_URL)) //URI created and passed to URI Method
 		.build(); 
 		
 		//obtain response by sending client request
 		//response body received and returned as a string
+		//send request = synchronous, synchronous comms = scheduled
 		HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
 		
 		
