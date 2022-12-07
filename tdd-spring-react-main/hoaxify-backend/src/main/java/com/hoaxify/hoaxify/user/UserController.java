@@ -50,3 +50,8 @@ public class UserController {
 		return new UserVM(updated);
 	}
 }
+
+//REST controller annotation used for request
+//RequestBody annotation - define object waiting for
+//tests run in random order
+
