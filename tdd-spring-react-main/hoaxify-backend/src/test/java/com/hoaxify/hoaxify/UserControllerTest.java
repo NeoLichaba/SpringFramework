@@ -608,22 +608,3 @@ public class UserControllerTest {
 	
 	
 }
-
-//Tests set out requirements
-//User Registration for backend
-//HTTP requests annotated in controller
-//JUnit4 = test runner for backend
-//Unit tests - focus on small unit of code - method
-//Integration test - running entire web application - use spring boot test application
-//Testing runs on random port
-//spring runs in different profiles. Run tests in controlled environment hence profile is defined "test"
-//TDD - define requirements and implementing them later
-//Field injection
-//assert j - easier to use
-//run as junit test
-//extract path to constant
-//assert userrepo to check if user saved to db
-//@fixedmethodorder - methods run in ascending order (prev-current)
-//each test run in controlled enviroment
-//@before - called before each test
-//

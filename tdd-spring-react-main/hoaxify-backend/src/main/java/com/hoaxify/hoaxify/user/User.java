@@ -83,5 +83,3 @@ public class User implements UserDetails{
 	}
 
 }
-
-//generatedvalue responsible for unique id generation

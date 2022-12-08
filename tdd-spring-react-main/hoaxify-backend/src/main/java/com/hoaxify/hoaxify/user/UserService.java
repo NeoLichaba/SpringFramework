@@ -64,6 +64,3 @@ public class UserService {
 	}
 
 }
-
-//@Service - instance of class created
-//
